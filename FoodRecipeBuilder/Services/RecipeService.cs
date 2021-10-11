@@ -17,7 +17,7 @@ namespace FoodRecipeBuilder.Services
                 var response = await client.GetAsync("recipes/complexSearch?apiKey=16207a652bd845e188bed4d094963a31");
                 if (response.IsSuccessStatusCode)
                 {
-                    var resContent = JsonConvert.DeserializeObject<RecipeModel>(await response.Content.ReadAsStringAsync());
+                    var resContent = JsonConvert.DeserializeObject<RecipeModelList>(await response.Content.ReadAsStringAsync());
                 }
                 throw new NotImplementedException();
             }

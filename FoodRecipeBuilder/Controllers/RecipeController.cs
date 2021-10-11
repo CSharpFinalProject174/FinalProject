@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FoodRecipeBuilder.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ namespace FoodRecipeBuilder.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class RecipeController:ControllerBase
+    public class RecipeController : ControllerBase
     {
         private readonly IRecipeService _recipeService;
 
@@ -18,7 +19,9 @@ namespace FoodRecipeBuilder.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> RecipeSummary()
+        [Route("Test")]
+        public async Task<IActionResult> Get()
+        //public async IAsyncEnumerable<RecipeModel> RecipeSummary()
         {
             var recipes = await _recipeService.GetRecipeSummary();
             return Ok(recipes);
