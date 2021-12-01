@@ -9,7 +9,7 @@ namespace FoodRecipeBuilder.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class RecipeController : ControllerBase
+    public class RecipeController : Controller
     {
         private readonly IRecipeService _recipeService;
 
