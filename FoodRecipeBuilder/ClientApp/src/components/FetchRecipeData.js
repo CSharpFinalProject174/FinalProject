@@ -26,7 +26,7 @@ export class FetchRecipeData extends Component {
           {recipes.map(recipe =>
             <tr key={recipe.id}>
               <td>{recipe.recipeName}</td>
-              <td>{recipe.prepTime}</td>
+              <td>{recipe.prepTime} mins</td>
               <td>{recipe.recipeDescription}</td>
             </tr>
           )}
