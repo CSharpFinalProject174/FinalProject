@@ -11,8 +11,8 @@ export class FetchData extends Component {
   componentDidMount() {
     this.populateWeatherData();
   }
-
   static renderForecastsTable(forecasts) {
+    console.log(forecasts)
     return (
       <table className='table table-striped' aria-labelledby="tabelLabel">
         <thead>

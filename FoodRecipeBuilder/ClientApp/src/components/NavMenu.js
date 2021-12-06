@@ -33,11 +33,14 @@ export class NavMenu extends Component {
                 <NavItem>
                   <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
                 </NavItem>
-                <NavItem>
+                {/* <NavItem>
                   <NavLink tag={Link} className="text-dark" to="/counter">Counter</NavLink>
-                </NavItem>
+                </NavItem> */}
+                {/* <NavItem>
+                  <NavLink tag={Link} className="text-dark" to="/fetch-data">Weather Data</NavLink>
+                </NavItem> */}
                 <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/fetch-data">Fetch data</NavLink>
+                  <NavLink tag={Link} className="text-dark" to="/fetch-recipe-data">Recipe Data</NavLink>
                 </NavItem>
               </ul>
             </Collapse>
