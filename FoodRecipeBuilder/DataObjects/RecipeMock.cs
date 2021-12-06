@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace FoodRecipeBuilder.DataObjects
 {
+    // Implement the interface for the the recipe objects
     public class RecipeMock : IRecipeMock
     {
+        // Create enumeralble for recipe list
         public IEnumerable<RecipeModel> GetRecipes()
         {
+            //Create a List of dummy recipes
             var recipes = new List<RecipeModel>
             {
                 new RecipeModel { Id = 0, prepTime = 45, recipeName = "Breakfast", recipeDescription = "Bacon, eggs and toast" },

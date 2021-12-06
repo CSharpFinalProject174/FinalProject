@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace FoodRecipeBuilder.DataObjects
 {
+    // Create the interface for Mock recipes
     public interface IRecipeMock
     {
         IEnumerable<RecipeModel> GetRecipes();

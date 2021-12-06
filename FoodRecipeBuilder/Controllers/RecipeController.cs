@@ -16,6 +16,7 @@ namespace FoodRecipeBuilder.Controllers
     {
         private readonly RecipeMock _recipeData = new RecipeMock();
 
+        // api GET for all recipes
         [HttpGet]
         public ActionResult <IEnumerable<RecipeModel>> GetAllRecipes()
         {
@@ -24,37 +25,12 @@ namespace FoodRecipeBuilder.Controllers
             return Ok(recipeItems);
         }
 
+        // api GET for recipe by id
         [HttpGet("{id}")]
         public ActionResult<RecipeModel> GetRecipeById(int id)
         {
             var recipeItem = _recipeData.GetRecipeById(id);
             return Ok(recipeItem);
         }
-
-        //private static readonly string[] Recipes = new[]
-        //{
-        //    "test", "test1", "test2"
-        //};
-
-        //private readonly ILogger<RecipeController> _logger; 
-
-        //public RecipeController(ILogger<RecipeController> logger)
-        //{
-        //    _logger = logger;
-        //}
-
-        //[HttpGet]
-        //public IEnumerable<RecipeController> Get()
-        //{
-        //    //return Enumerable.  .Select(i => new RecipeModel
-        //    //{
-        //    //    recipeName = Recipes[i]
-        //    //}).toArray();
-        //    //return Enumerable.Empty().Select(i => new RecipeModel
-        //    //{
-        //    //    recipeName = Recipes[i]
-        //    //});
-        //    return Enumerable.
-        //}
     }
 }
