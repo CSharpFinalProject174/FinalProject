@@ -18,7 +18,7 @@ namespace FoodRecipeBuilder.Controllers
 
         // api GET for all recipes
         [HttpGet]
-        public ActionResult <IEnumerable<RecipeModel>> GetAllRecipes()
+        public ActionResult<IEnumerable<RecipeModel>> GetAllRecipes()
         {
             var recipeItems = _recipeData.GetRecipes();
 
