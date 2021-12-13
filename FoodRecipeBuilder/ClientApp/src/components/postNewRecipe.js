@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 
-export class FetchRecipeData extends Component {
+export class PostRecipeData extends Component {
   static displayName = FetchRecipeData.name;
 
   constructor(props) {
     super(props);
-    this.state = { recipes: [], loading: true };
+    this.state = { 
+        recipeId: Date.now(), 
+        recipeName: '', 
+        prepTime: 0, 
+        recipeDesc: '' };
   }
 
   componentDidMount() {
@@ -18,7 +22,7 @@ export class FetchRecipeData extends Component {
         <thead>
           <tr>
             <th>Name</th>
-            <th>Preperation Time</th>
+            <th>Preperation time</th>
             <th>Ingredents</th>
           </tr>
         </thead>
@@ -30,7 +34,7 @@ export class FetchRecipeData extends Component {
               <td>{recipe.recipeDescription}</td>
             </tr>
           )}
-
+          
         </tbody>
       </table>
     );
@@ -50,8 +54,14 @@ export class FetchRecipeData extends Component {
     );
   }
 
-  async populateRecipeData() {
-    const response = await fetch('api/recipes');
+  async postRecipeData() {
+    const requestOp = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({postData})
+    };
+    
+    const response = await fetch('api/recipes')
     const data = await response.json();
     this.setState({ recipes: data, loading: false });
   }
