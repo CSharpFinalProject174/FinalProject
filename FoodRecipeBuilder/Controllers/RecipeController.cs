@@ -21,7 +21,6 @@ namespace FoodRecipeBuilder.Controllers
         public ActionResult <IEnumerable<RecipeModel>> GetAllRecipes()
         {
             var recipeItems = _recipeData.GetRecipes();
-
             return Ok(recipeItems);
         }
 
