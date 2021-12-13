@@ -33,6 +33,7 @@ namespace FoodRecipeBuilder
 
             //Adding Dependency injection 
             services.AddDbContext<RecipeContext>(Options => Options.UseSqlServer(Configuration.GetConnectionString("RecipiConnection")));
+            services.AddTransient<IRecipeRepository, SQLRecipeRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
