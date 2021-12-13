@@ -13,6 +13,7 @@ namespace FoodRecipeBuilder.Models
         [Key]
         [Required(ErrorMessage = "This field is requaired")]
         public int Id { get; set; }
+
         [Column(TypeName="nvarchar(250)")]
         [Required(ErrorMessage = "This field is requaired")]
         [DisplayName("Preap Time")]
