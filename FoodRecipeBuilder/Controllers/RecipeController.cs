@@ -18,12 +18,16 @@ namespace FoodRecipeBuilder.Controllers
     {
         private readonly RecipeMock _recipeData = new RecipeMock();
         public readonly IRecipeRepository _repository;
-
+        
+        public RecipeController(IRecipeRepository repository)
+        {
+            _repository = repository;
+        }
         // api GET for all recipes
         [HttpGet]
         public ActionResult<IEnumerable<RecipeModel>> GetAllRecipes()
         {
-            var recipeItems = _recipeData.GetRecipes();
+            var recipeItems = _repository.GetAllRecipes();
 
             return Ok(recipeItems);
         }
@@ -32,7 +36,7 @@ namespace FoodRecipeBuilder.Controllers
         [HttpGet("{id}")]
         public ActionResult<RecipeModel> GetRecipeById(int id)
         {
-            var recipeItem = _recipeData.GetRecipeById(id);
+            var recipeItem = _repository.Get(id);
             return Ok(recipeItem);
         }
     }
