@@ -14,6 +14,10 @@ namespace FoodRecipeBuilder.Models
             this.context = context;
         }
 
+        public SQLRecipeRepository()
+        {
+        }
+
         public RecipeModel Add(RecipeModel recipe)
         {
             context.RecipeModels.Add(recipe);

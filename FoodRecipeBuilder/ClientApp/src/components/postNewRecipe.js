@@ -5,11 +5,30 @@ export class PostRecipeData extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { 
+    this.initialState = { 
         recipeId: Date.now(), 
         recipeName: '', 
         prepTime: 0, 
-        recipeDesc: '' };
+        recipeDesc: '' 
+    };
+    this.state = this.initialState;
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(e){
+      const name = e.target.name;
+      const value = e.target.value;
+
+      this.setState({
+          [name]:value
+      })
+  }
+
+  handleSubmit(e){
+      e.preventDefault();
+      this.props.onFormSubmit(this.state)
   }
 
   componentDidMount() {
