@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace FoodRecipeBuilder.Models
 {
-    interface IRecipeRepository
+    public interface IRecipeRepository
     {
         public RecipeModel Add(RecipeModel recipe);
         public RecipeModel Delete(int id);

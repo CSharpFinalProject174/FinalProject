@@ -2,11 +2,13 @@
 using FoodRecipeBuilder.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace FoodRecipeBuilder.Controllers
 {
@@ -16,14 +18,28 @@ namespace FoodRecipeBuilder.Controllers
     public class RecipeController : ControllerBase
     {
         private readonly RecipeMock _recipeData = new RecipeMock();
+<<<<<<< HEAD
         // Issue is with default constructor vs using constructor that is being passed a value
         public readonly SQLRecipeRepository _recipeResult = new SQLRecipeRepository();
 
+=======
+        public readonly IRecipeRepository _repository;
+        
+        public RecipeController(IRecipeRepository repository)
+        {
+            _repository = repository;
+        }
+>>>>>>> 6ba6a49c130c58165adf04d798eccbf8302601b0
         // api GET for all recipes
         [HttpGet]
         public ActionResult<IEnumerable<RecipeModel>> GetAllRecipes()
         {
+<<<<<<< HEAD
             var recipeItems = _recipeData.GetRecipes();
+=======
+            var recipeItems = _repository.GetAllRecipes();
+
+>>>>>>> 6ba6a49c130c58165adf04d798eccbf8302601b0
             return Ok(recipeItems);
         }
 
@@ -31,7 +47,7 @@ namespace FoodRecipeBuilder.Controllers
         [HttpGet("{id}")]
         public ActionResult<RecipeModel> GetRecipeById(int id)
         {
-            var recipeItem = _recipeData.GetRecipeById(id);
+            var recipeItem = _repository.Get(id);
             return Ok(recipeItem);
         }
 
