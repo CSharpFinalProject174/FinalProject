@@ -18,28 +18,18 @@ namespace FoodRecipeBuilder.Controllers
     public class RecipeController : ControllerBase
     {
         private readonly RecipeMock _recipeData = new RecipeMock();
-<<<<<<< HEAD
-        // Issue is with default constructor vs using constructor that is being passed a value
-        public readonly SQLRecipeRepository _recipeResult = new SQLRecipeRepository();
-
-=======
         public readonly IRecipeRepository _repository;
         
         public RecipeController(IRecipeRepository repository)
         {
             _repository = repository;
         }
->>>>>>> 6ba6a49c130c58165adf04d798eccbf8302601b0
         // api GET for all recipes
         [HttpGet]
         public ActionResult<IEnumerable<RecipeModel>> GetAllRecipes()
         {
-<<<<<<< HEAD
-            var recipeItems = _recipeData.GetRecipes();
-=======
             var recipeItems = _repository.GetAllRecipes();
 
->>>>>>> 6ba6a49c130c58165adf04d798eccbf8302601b0
             return Ok(recipeItems);
         }
 
@@ -54,7 +44,7 @@ namespace FoodRecipeBuilder.Controllers
         [HttpPost]
         public ActionResult<RecipeModel> Add(RecipeModel recipeModel)
         {
-            var recipeResult = _recipeResult.Add(recipeModel);
+            var recipeResult = _repository.Add(recipeModel);
             // Tried to create a new sqlrec object here that could be passed something, but it didnt work
             //var  newRecipeResult = new SQLRecipeRepository(RecipeContext recipeResult);
 
